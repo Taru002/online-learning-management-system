@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Available Courses</h2>
+        <ul>
+            {% for course in courses %}
+            <li>
+                <a href="{{ url_for('view_course', filename=course['filename']) }}">{{ course['name'] }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

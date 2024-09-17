@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Manage Courses</h2>
+        <ul>
+            {% for course in courses %}
+            <li>{{ course['name'] }} - File: {{ course['filename'] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

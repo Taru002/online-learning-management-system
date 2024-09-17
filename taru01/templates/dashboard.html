@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome, {{ session['username'] }}</h2>
+        {% if role == 'student' %}
+            <a href="{{ url_for('browse_courses') }}">Browse Courses</a><br>
+        {% elif role == 'instructor' %}
+            <a href="{{ url_for('upload_course') }}">Upload Course</a><br>
+        {% elif role == 'admin' %}
+            <a href="{{ url_for('manage_users') }}">Manage Users</a><br>
+            <a href="{{ url_for('manage_courses') }}">Manage Courses</a><br>
+        {% endif %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</body>
+</html>
